@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор надежных паролей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="password-generator">
+            <h1>Генератор паролей</h1>
+            <div class="password-header">
+                <div class="password-box">
+                    <input type="text" id="password" readonly placeholder="Ваш пароль">
+                </div>
+                <button id="copy-btn" class="icon-btn" aria-label="Копировать пароль">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <button id="refresh-btn" class="icon-btn" aria-label="Сгенерировать новый пароль">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+                </button>
+            </div>
+            
+            <div class="password-strength">
+                <div class="strength-meter">
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                    <div class="strength-segment"></div>
+                </div>
+                <p id="strength-text">Сложность: Нет пароля</p>
+            </div>
+            
+            <div class="settings">
+                <div class="setting">
+                    <div class="setting-header">
+                        <label for="password-length">Длина пароля</label>
+                        <span id="length-value">16</span>
+                    </div>
+                    <input type="range" id="password-length" min="4" max="32" value="16" class="slider">
+                </div>
+                
+                <div class="setting">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="include-uppercase" checked>
+                        <span class="checkmark"></span>
+                        Заглавные буквы (A-Z)
+                    </label>
+                </div>
+                
+                <div class="setting">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="include-lowercase" checked>
+                        <span class="checkmark"></span>
+                        Строчные буквы (a-z)
+                    </label>
+                </div>
+                
+                <div class="setting">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="include-numbers" checked>
+                        <span class="checkmark"></span>
+                        Цифры (0-9)
+                    </label>
+                </div>
+                
+                <div class="setting">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="include-symbols">
+                        <span class="checkmark"></span>
+                        Специальные символы (!@#$%^&*)
+                    </label>
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="generate-btn">
+                Сгенерировать пароль
+            </button>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">
+        <p>Пароль скопирован!</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 

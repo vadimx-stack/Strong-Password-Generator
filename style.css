@@ -1,0 +1,325 @@
+:root {
+    --primary: #7c3aed;
+    --primary-dark: #6d28d9;
+    --primary-light: #a78bfa;
+    --primary-50: #f5f3ff;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --bg-color: #f9fafb;
+    --bg-card: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.05);
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --success: #10b981;
+    --transition: all 0.3s ease;
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+.password-generator {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px var(--shadow);
+    padding: 30px;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.password-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.password-box {
+    flex: 1;
+    position: relative;
+}
+
+.password-box input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e5e7eb;
+    border-radius: var(--radius);
+    font-size: 16px;
+    color: var(--text-dark);
+    background: var(--bg-color);
+    transition: var(--transition);
+    outline: none;
+    font-family: monospace;
+}
+
+.password-box input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.icon-btn {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: var(--primary-50);
+    color: var(--primary);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.icon-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.password-strength {
+    margin-bottom: 24px;
+}
+
+.strength-meter {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.strength-segment {
+    height: 8px;
+    flex: 1;
+    background: #e5e7eb;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.strength-segment.weak {
+    background: var(--danger);
+}
+
+.strength-segment.medium {
+    background: var(--warning);
+}
+
+.strength-segment.strong {
+    background: var(--success);
+}
+
+#strength-text {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.settings {
+    margin-bottom: 24px;
+}
+
+.setting {
+    margin-bottom: 16px;
+}
+
+.setting-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.slider {
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    appearance: none;
+    background: #e5e7eb;
+    outline: none;
+    transition: var(--transition);
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.slider::-webkit-slider-thumb:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: var(--text-dark);
+    position: relative;
+    padding-left: 30px;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.checkbox-container:hover .checkmark {
+    background-color: #d1d5db;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.generate-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.generate-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--text-dark);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .password-generator {
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .password-box input {
+        padding: 12px;
+    }
+    
+    .icon-btn {
+        width: 42px;
+        height: 42px;
+    }
+} 
